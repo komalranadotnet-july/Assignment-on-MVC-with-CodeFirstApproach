@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MovieCustomerMvcAppWithAuthentication.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>MovieL List</h2>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>Movie Name</th>
+            <th>Movie Genre</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(movie.Name, "Details", "Movie", new { id = movie.Id }, null)</td>
+            
+            <td>@movie.Genre</td>
+            
+        </tr>
+        }
+    </tbody>
+
+</table>
+
